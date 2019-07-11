@@ -73,15 +73,24 @@ function newCard(data) {
   name.textContent = data.name;
   userName.textContent = data.login;
   location.textContent = `Location: ${data.location}`;
-  link.textContent = `Profile:  ${data.url}`;
-
+  profile.textContent = 'Profile:';
+  link.textContent = data.html_url;
+  link.href = data.html_url;
+  followers.textContent = `Followers: ${data.followers}`;
+  following.textContent = `Following: ${data.following}`;
+  bio.textContent = `Bio: ${data.bio}`;
   
   // Put together
   card.appendChild(img);
-  card.appendChild(name);
-  card.appendChild(userName);
-  card.appendChild(location);
-  card.appendChild(link);
+  card.appendChild(cardInfo);
+  cardInfo.appendChild(name);
+  cardInfo.appendChild(userName);
+  cardInfo.appendChild(location);
+  cardInfo.appendChild(profile);
+  profile.appendChild(link);
+  cardInfo.appendChild(followers);
+  cardInfo.appendChild(following);
+  cardInfo.appendChild(bio);
 
   return card
 }
