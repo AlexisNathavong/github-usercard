@@ -56,6 +56,7 @@ function newCard(data) {
   const userName = document.createElement('p');
   const location = document.createElement('p');
   const profile = document.createElement('p');
+  const link = document.createElement('a');
   const followers = document.createElement('p');
   const following = document.createElement('p');
   const bio = document.createElement('p');
@@ -69,17 +70,19 @@ function newCard(data) {
 
   //Set the content
   img.src = data.avatar_url;
-  // set the styles
-  // card.classList.add('dog-card')
-  // img.classList.add('dog-image')
+  name.textContent = data.name;
+  userName.textContent = data.login;
+  location.textContent = `Location: ${data.location}`;
+  link.textContent = `Profile:  ${data.url}`;
+
   
-  // // set the content
-  // img.src = imageUrl
-  // title.textContent = `Breed: ${breed}`
-  
-  // // put together
-  card.appendChild(img)
-  // card.appendChild(title)
+  // Put together
+  card.appendChild(img);
+  card.appendChild(name);
+  card.appendChild(userName);
+  card.appendChild(location);
+  card.appendChild(link);
+
   return card
 }
 /* Step 5: Now that you have your own card getting added to the DOM, either 
